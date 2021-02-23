@@ -17,7 +17,7 @@ const IdentityProvider = (props) => {
     netlifyIdentity.init({});
   }, []);
 
-
+     
   netlifyIdentity.on('login' , (user) => {
     netlifyIdentity.close();
     setUser(user);
