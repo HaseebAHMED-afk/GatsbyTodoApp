@@ -5,7 +5,7 @@ const { ApolloServer, gql } = require("apollo-server-lambda");
 const typeDefs = gql`
   type Query {
     todos: [Todo]!
-  }
+  } 
   type Todo {
     id: ID!
     text: String!
@@ -18,8 +18,11 @@ const typeDefs = gql`
 `;
 
 const todos = {};
+
+
 let todoIndex = 0;
 const resolvers = {
+  
   Query: {
     todos: () => {
       return Object.values(todos);
