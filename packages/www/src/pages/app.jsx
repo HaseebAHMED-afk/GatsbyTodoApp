@@ -7,7 +7,7 @@ import Dash from '../components/dashboard'
 
 
 let DashLoggedOut = () => {
-    const { identity} = useContext( IdentityContext )
+    const {identity} = useContext( IdentityContext )
     return (
         <Container>
         
