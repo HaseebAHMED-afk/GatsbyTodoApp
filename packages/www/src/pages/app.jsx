@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
-import { Router , Link} from '@reach/router'
+import { Router } from '@reach/router'
 import { IdentityContext } from '../../netlifyIdentityContext'
-import { Flex , Heading , Button, Container , NavLink } from 'theme-ui'
+import { Flex , Heading , Button, Container  } from 'theme-ui'
 import Dash from '../components/dashboard'
 
 
 
 let DashLoggedOut = () => {
-    const {user , identity} = useContext( IdentityContext )
+    const { identity} = useContext( IdentityContext )
     return (
         <Container>
         
@@ -20,13 +20,13 @@ let DashLoggedOut = () => {
           sx={{ margin: 2, color: "white", backgroundColor: "green" }}
         >
           Login
-        </Button>
+        </Button>   
       </Flex>
       </Container>
     )
 }
 
-export default props => {
+export default () => {
 
     const { user } = useContext(IdentityContext)
 
@@ -45,4 +45,4 @@ export default props => {
         </Router>
     )
 
-}
+}   

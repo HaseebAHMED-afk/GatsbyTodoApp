@@ -1,15 +1,14 @@
-import React, { useContext, useRef, useReducer, useState } from "react";
+import React, { useContext, useRef, useReducer} from "react";
 import {
   Container,
   Flex,
-  Heading,
   Button,
   Input,
   Label,
   NavLink,
   Checkbox
 } from "theme-ui";
-import { Router, Link } from "@reach/router";
+import { Link } from "@reach/router";
 import { IdentityContext } from '../../netlifyIdentityContext'
 
 
