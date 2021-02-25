@@ -114,7 +114,7 @@ const Dash = () => {
                   }}
                 >
                   <Checkbox checked={todo.done} readOnly />
-                  <span>{todo.value}</span>
+                  <span>{todo.text}</span>
                 </Flex>
               );
             })}
