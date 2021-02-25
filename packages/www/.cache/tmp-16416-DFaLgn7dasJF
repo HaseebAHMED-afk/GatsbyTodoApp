@@ -1,1 +1,0 @@
-require("D:/web/bootcamp/gatsby-todo-app/node_modules/gatsby/dist/utils/telemetry-server.js").default(57600)
