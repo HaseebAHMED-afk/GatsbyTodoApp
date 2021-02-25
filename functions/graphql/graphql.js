@@ -1,29 +1,27 @@
-const { ApolloServer, gql } = require('apollo-server-lambda');
- 
+const { ApolloServer, gql } = require("apollo-server-lambda");
+
+
+
 const typeDefs = gql`
- type Todo{
+  type Query {
+    todos: [Todo]!
+  }
+  type Todo {
     id: ID!
     text: String!
     done: Boolean!
   }
-  type Query {
-    todos: [Todo]!
-  }
-  type Mutation{
-    addTodo: (text: String!): Todo
-    updateTodoDone:(id: ID!):Todo
+  type Mutation {
+    addTodo(text: String!): Todo
+    updateTodoDone(id: ID!): Todo
   }
 `;
 
-const todos =  {}
-
-let todoIndex =  0;
-
-
- 
+const todos = {};
+let todoIndex = 0;
 const resolvers = {
   Query: {
-    todos: ()=>{
+    todos: () => {
       return Object.values(todos);
     }
   },
@@ -40,12 +38,12 @@ const resolvers = {
     }
   }
 };
- 
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   introspection: true,
   playground: true,
-})
- 
+});
+
 exports.handler = server.createHandler();
