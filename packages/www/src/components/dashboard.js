@@ -39,30 +39,30 @@ const GET_TODOS = gql`
   }
 `;
 
-// const todosReducer = (state, action) => {
-//   switch (action.type) {
-//     case "addTodo":
-//       return [{ done: false, value: action.payload }, ...state];
-//     case "toggleTodoDone":
-//       const newState = [...state];
-//       newState[action.payload] = {
-//         done: !state[action.payload].done,
-//         vale: state[action.payload].value,
-//       };
-//       return newState;
-//   }
-// };
+const todosReducer = (state, action) => {
+  switch (action.type) {
+    case "addTodo":
+      return [{ done: false, value: action.payload }, ...state];
+    case "toggleTodoDone":
+      const newState = [...state];
+      newState[action.payload] = {
+        done: !state[action.payload].done,
+        vale: state[action.payload].value,
+      };
+      return newState;
+  }
+};
 
 const Dash = () => {
   const { user, identity } = useContext(IdentityContext);
   const inputRef = useRef();
-  // const [todos, dispatch] = useReducer(todosReducer, []);
+  const [todos, dispatch] = useReducer(todosReducer, []);
   const [addTodo] = useMutation(ADD_TODO);
   const [updateTodoDone] = useMutation(UPDATE_TODO);
   const [loading, error, data, refetch] = useQuery(GET_TODOS);
 
   console.log(data);
-  
+
   return (
     <Container>
       <Flex as="nav">
@@ -109,12 +109,12 @@ const Dash = () => {
                 <Flex
                   as={"li"}
                   key={i}
-                  onClick={async () => {
-                    console.log("updateTodoDone");
-                    await updateTodoDone({ variables: { id: todo.id } });
-                    console.log("refetching");
-                    await refetch();
-                  }}
+                  // onClick={async () => {
+                  //   console.log("updateTodoDone");
+                  //   await updateTodoDone({ variables: { id: todo.id } });
+                  //   console.log("refetching");
+                  //   await refetch();
+                  // }}
                 >
                   <Checkbox checked={todo.done} readOnly />
                   <span>{todo.text}</span>
